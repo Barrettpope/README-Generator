@@ -51,19 +51,18 @@ function promptUser() {
             type: "input",
             message: "Please enter your email address:",
             name: "email"
-        },
-        {
-            type: "input",
-            message: "Please enter installation instructions for your project:",
-            name: "confirm"
         }
     ])
 };
 promptUser()
 
-    .then(function (response) {
-
-    })
+    .then(data => {
+        fs.writeFile("README.md", generateMarkdown(data), "utf8", function (err) {
+            if (err) {
+                console.log(err)
+            }
+        })
+    });
 
 
 // function to write README file
