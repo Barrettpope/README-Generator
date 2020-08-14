@@ -1,10 +1,10 @@
-// Requiring node modules
+// importing library packages and generateMarkdown file
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
 
-// array of questions for user
+// questions for user
 function promptUser() {
     return inquirer.prompt([{
             type: "input",
@@ -39,7 +39,7 @@ function promptUser() {
         {
             type: "list",
             message: "Please select a license for your application:",
-            choices: ["MIT", "Open Software License 3.0", "Microsoft Public License", "Eclipse Public License 1.0"],
+            choices: ["Apache 2.0 License", "Boost Software License 1.0", "Mozilla Public License 2.0", "Eclipse Public License 1.0"],
             name: "license"
         },
         {
@@ -63,17 +63,3 @@ promptUser()
             }
         })
     });
-
-
-// function to write README file
-function writeToFile(fileName, data) {
-
-}
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
